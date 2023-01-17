@@ -1,0 +1,387 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>jiujue - jiujue blogs</title><meta name="keywords" content="c,c++,python,web,react,vue"><meta name="author" content="jiujue,jiujueismmp@foxmail.com"><meta name="copyright" content="jiujue"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="jiujue">
+<meta property="og:url" content="https://www.jiujue.top/index.html">
+<meta property="og:site_name" content="jiujue">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.jiujue.top/img/avatar.jpg">
+<meta property="article:author" content="jiujue">
+<meta property="article:tag" content="c,c++,python,web,react,vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.jiujue.top/img/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://www.jiujue.top/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"top-right"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'jiujue',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-01-17 13:19:03'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">40</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">26</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/space.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">jiujue</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">jiujue</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/jiujue" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jiujueismmp@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/11/22/grid-%E5%B8%83%E5%B1%80%E5%92%8Cflex%E5%B8%83%E5%B1%80%E7%9A%84-%E9%80%89%E6%8B%A9%E9%97%AE%E9%A2%98/" title="grid 布局和flex布局的 选择问题.">     <img class="post_bg" src="/img/space04.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="grid 布局和flex布局的 选择问题."></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/22/grid-%E5%B8%83%E5%B1%80%E5%92%8Cflex%E5%B8%83%E5%B1%80%E7%9A%84-%E9%80%89%E6%8B%A9%E9%97%AE%E9%A2%98/" title="grid 布局和flex布局的 选择问题.">grid 布局和flex布局的 选择问题.</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-22T19:21:14.000Z" title="发表于 2021-11-22 19:21:14">2021-11-22</time></span></div><div class="content">grid 布局和 flex 布局 有各自的应用场景
+
+要考虑是一纬布局还是二维布局(横向排列和竖向排列都要考虑)
+一维布局用felx
+而维用 grid
+
+
+是从内容出发还是从布局出发
+从内容出发: 内容不确定,希望有规律的分布在容器中
+从布局出发: 整体架构已经确定, 填元素即可
+
+
+
+总结: 整体青睐grid,局部用flex.
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/11/21/%E6%89%8B%E5%86%99-miniVue-03-%E5%AF%BC%E5%87%BA%E5%A4%96%E9%83%A8%E5%AE%9E%E4%BE%8B/" title="手写 miniVue - 03_导出外部实例">     <img class="post_bg" src="/img/space04.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="手写 miniVue - 03_导出外部实例"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/21/%E6%89%8B%E5%86%99-miniVue-03-%E5%AF%BC%E5%87%BA%E5%A4%96%E9%83%A8%E5%AE%9E%E4%BE%8B/" title="手写 miniVue - 03_导出外部实例">手写 miniVue - 03_导出外部实例</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-21T11:12:00.000Z" title="发表于 2021-11-21 11:12:00">2021-11-21</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%B9%A6%E5%86%99/">书写</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E4%B9%A6%E5%86%99/vue/">vue</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/vue/">vue</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%89%8B%E5%86%99/">手写</a></span></div><div class="content">12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210310410510610710810911011111211311411511611711811912012112212312412512612712812913013113213313413513613713813914014114214314414514614714814915015115215315415515615715815916016116216316416516616716816917017117217317417517617717817918018118218318418518618718818919019119219319419519619719819920020120220 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/11/21/%E6%89%8B%E5%86%99-miniVue-02-%E5%93%8D%E5%BA%94%E5%BC%8F/" title="手写 miniVue -  02_响应式">     <img class="post_bg" src="/img/space05.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="手写 miniVue -  02_响应式"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/21/%E6%89%8B%E5%86%99-miniVue-02-%E5%93%8D%E5%BA%94%E5%BC%8F/" title="手写 miniVue -  02_响应式">手写 miniVue -  02_响应式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-21T11:09:00.000Z" title="发表于 2021-11-21 11:09:00">2021-11-21</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%89%8B%E5%86%99/">手写</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E6%89%8B%E5%86%99/vue/">vue</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/vue/">vue</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%89%8B%E5%86%99/">手写</a></span></div><div class="content">02_vue2_reactive
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869class Watcher &#123;	static _effect = null	static WatchEffect(effect) &#123;		Watcher._effect = effect		effect()		Watcher._effect = null	&#125;&#125;/** * * * @class Dep */class Dep &#123;	constructor() &#123;		this.watchers = new Set()	&#125;	depend() &#123;		this.watchers.add(Watcher._effect)	&#125;	notify() &#123;		this.watchers.forEach(watcher =&gt ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/11/21/%E6%89%8B%E5%86%99-miniVue/" title="手写 miniVue - 01_渲染实现">     <img class="post_bg" src="/img/space03.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="手写 miniVue - 01_渲染实现"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/21/%E6%89%8B%E5%86%99-miniVue/" title="手写 miniVue - 01_渲染实现">手写 miniVue - 01_渲染实现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-21T11:06:00.000Z" title="发表于 2021-11-21 11:06:00">2021-11-21</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%89%8B%E5%86%99/">手写</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E6%89%8B%E5%86%99/vue/">vue</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/vue/">vue</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%89%8B%E5%86%99/">手写</a></span></div><div class="content">123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160function h(tag, props, children) &#123;	// js obj -&gt; vnode	if ([...arguments].length === 1 &amp;&amp; typeof arguments[0] === ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/11/18/interview-react/" title="interview react">     <img class="post_bg" src="/img/space05.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="interview react"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/18/interview-react/" title="interview react">interview react</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-18T15:54:00.000Z" title="发表于 2021-11-18 15:54:00">2021-11-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/react/">react</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/react/interview/">interview</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/react/">react</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/interview/">interview</a></span></div><div class="content">
+setState 异步和同步
+setState 其实无所谓异步同步,如果命中batchingUpdates 就是同步,否则是异步
+那些能命中batchUpdate机
+生命周期 和它调用的函数
+React 中注册的事件 和它调用的函数
+React可以管理的入口
+
+
+react hooks 解决了什么问题,为什么会有这个
+class 逻辑分散,存在性能浪费
+class 复杂组件不易拆解,不易测试
+完善函数组件的能力,符合react 函数式编程的思想
+组件逻辑复用时,hooks 逻辑更清晰
+
+
+hooks 如何模拟生命周期
+useEffect
+
+
+如何自定义
+uesXxx
+
+
+hooks 性能优化
+useMemo
+useCallback
+
+
+hooks 遇到那些坑
+只能用于顶层代码,不能有循环之类的
+useState 只初始化一次
+useEffect 内部不能修改state
+useEffect 依赖引用类型会出现死循环
+
+
+hooks 比 hoc render props 优点在哪里
+符合逻辑
+变量作用域明确
+不会产生组件嵌套
+
+
+
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/11/18/interview-webpack/" title="interview webpack">     <img class="post_bg" src="/img/space05.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="interview webpack"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/18/interview-webpack/" title="interview webpack">interview webpack</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-18T15:49:00.000Z" title="发表于 2021-11-18 15:49:00">2021-11-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/interview/">interview</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/interview/webpack/">webpack</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/interview/">interview</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/webpack/">webpack</a></span></div><div class="content">
+前端代码为何要进行构建和打包
+module chunk bundle 分别是什么意思,有何区别
+module 各个源码文件,webpack中一切皆模块
+chunk 多模块合并成的,如 entry。impor() splitChunk
+bundle 最终的输出文件,可以有多个
+
+
+loader 和 plugin 的区别
+webpack 如何实现懒加载
+webpack 常见性能优化
+构建速度
+优化babel-loader : 开启缓存,添加include或exclude 明确范围
+ignorePlugin
+noParse
+happyPack
+prallelUglifyPlugin
+自动刷新 - 热更新-自动刷新升级版
+dllPlugin
+
+
+
+
+babel-runtime  和 babel-polyfill 的区别
+runtime 不会污染全局环境   - babel-polyfill 最新webpack中使用core.js 替代-还有generator.js
+
+
+
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/11/18/interview-vue3/" title="interview vue3">     <img class="post_bg" src="/img/space06.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="interview vue3"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/18/interview-vue3/" title="interview vue3">interview vue3</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-18T15:48:00.000Z" title="发表于 2021-11-18 15:48:00">2021-11-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/interview/">interview</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/interview/vue3/">vue3</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/interview/vue3/vue/">vue</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/vue/">vue</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/interview/">interview</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/vue3/">vue3</a></span></div><div class="content">
+Vue3 比 vue2 有什么优势
+
+描述vue3生命周期
+
+如何看待composition API 和 Options API
+
+如何理解 ref toRef toRefs
+
+Vue3 升级哪些重要功能
+
+createApp
+
+use 等原来需要用Vue来调用,现在使用app实例
+
+
+emits 属性
+
+生命周期
+
+多事件
+
+可以给事件绑定多个会掉,用逗号隔开
+
+
+fragment
+
+template 不再 需要包裹单一父节点
+
+
+移除.sync
+
+移除异步组件的写法
+
+Vue2 直接通过函数返回import(‘’componentPath.vue)
+Vue3 需要使用defineAsyncComponent 来包裹vue2 的写法
+
+
+基础filter
+
+Teleport
+
+Suspense
+
+Composition API
+
+reactive ref相关函数 readonly watch watchEffect setup 生命周期钩子
+
+
+
+
+Composition API 如何实现代码逻辑复用
+
+Vue3 如何实现响应式
+
+watch watchEffect 区别是什么
+
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/11/18/%E9%9D%A2%E8%AF%95-vue-%E9%A2%98%E7%9B%AE/" title="interview vue 题目">     <img class="post_bg" src="/img/space02.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="interview vue 题目"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/18/%E9%9D%A2%E8%AF%95-vue-%E9%A2%98%E7%9B%AE/" title="interview vue 题目">interview vue 题目</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-18T15:43:00.000Z" title="发表于 2021-11-18 15:43:00">2021-11-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/vue/">vue</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/vue/interview/">interview</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/vue/">vue</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/interview/">interview</a></span></div><div class="content">
+Vue 组件如何通讯
+
+父子组件props 和 this.$emit
+自定义事件event.$no event.$off event.$emit
+Vex
+
+
+Vue 组件生命周期（父子组件）
+12345678加载渲染过程　　父beforeCreate-&gt;父created-&gt;父beforeMount-&gt;子beforeCreate-&gt;子created-&gt;子beforeMount-&gt;子mounted-&gt;父mounted子组件更新过程　　父beforeUpdate-&gt;子beforeUpdate-&gt;子updated-&gt;父updated父组件更新过程　　父beforeUpdate-&gt;父updated销毁过程　　父beforeDestroy-&gt;子beforeDestroy-&gt;子destroyed-&gt;父destroyed
+描述组件渲染和更新的过程
+
+
+
+v-model的实现原理
+
+input元素的value=this.name
+绑定input事件this.name = $event.target.value
+data ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/11/18/%E9%9D%A2%E8%AF%95-js-%E5%9F%BA%E7%A1%80%E9%9D%A2%E9%A2%98%E7%9B%AE/" title="面试 一面 js 基础面题目">     <img class="post_bg" src="/img/space03.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="面试 一面 js 基础面题目"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/18/%E9%9D%A2%E8%AF%95-js-%E5%9F%BA%E7%A1%80%E9%9D%A2%E9%A2%98%E7%9B%AE/" title="面试 一面 js 基础面题目">面试 一面 js 基础面题目</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-18T15:41:00.000Z" title="发表于 2021-11-18 15:41:00">2021-11-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/interview/">interview</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/interview/">interview</a></span></div><div class="content">
+typeof 能判断哪些类型
+
+识别所有值类型
+识别函数
+判断是否为引用类型(不可再发)
+
+
+何时使用=== 何时使用==
+
+值类型和应用类型的区别
+
+手写深浅拷贝
+1234567891011121314151617const deepClone = (obj = &#123;&#125;) =&gt; &#123;	if (typeof obj !== &#x27;object&#x27; || obj == null) &#123;		return obj	&#125;	let res	if (obj instanceof Array) &#123;		res = []	&#125; else &#123;		res = &#123;&#125;	&#125;	for (const key in obj) &#123;		if (Object.hasOwnProperty.call(obj, key)) &#123;			res[key] = deepClone(obj[key])		&#125;	&#125;	return res&#125;
+如何准确判断一个变量是不是数组
+
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/11/18/%E6%89%8B%E5%86%99-%E9%98%B2%E6%8A%96-debounce/" title="手写 防抖 debounce">     <img class="post_bg" src="/img/space04.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="手写 防抖 debounce"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/18/%E6%89%8B%E5%86%99-%E9%98%B2%E6%8A%96-debounce/" title="手写 防抖 debounce">手写 防抖 debounce</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-18T13:52:00.000Z" title="发表于 2021-11-18 13:52:00">2021-11-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%89%8B%E5%86%99%E7%B3%BB%E5%88%97/">手写系列</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E6%89%8B%E5%86%99%E7%B3%BB%E5%88%97/js-trick/">js trick</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/js-trick/">js trick</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%89%8B%E5%86%99%E7%B3%BB%E5%88%97/">手写系列</a></span></div><div class="content">123456789101112const useDebounce = (fn) =&gt; &#123;	let timer = null;    return () =&gt; &#123;    	clearTimeout(timer);    	timer = setTimeout(        ()=&gt;&#123;          fn();          clearTimeout(timer);        &#125;        ,1000);    &#125;&#125;</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="avatar"/></div><div class="author-info__name">jiujue</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">40</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">26</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/jiujue"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/jiujue" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jiujueismmp@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/22/grid-%E5%B8%83%E5%B1%80%E5%92%8Cflex%E5%B8%83%E5%B1%80%E7%9A%84-%E9%80%89%E6%8B%A9%E9%97%AE%E9%A2%98/" title="grid 布局和flex布局的 选择问题."><img src="/img/space04.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="grid 布局和flex布局的 选择问题."/></a><div class="content"><a class="title" href="/2021/11/22/grid-%E5%B8%83%E5%B1%80%E5%92%8Cflex%E5%B8%83%E5%B1%80%E7%9A%84-%E9%80%89%E6%8B%A9%E9%97%AE%E9%A2%98/" title="grid 布局和flex布局的 选择问题.">grid 布局和flex布局的 选择问题.</a><time datetime="2021-11-22T19:21:14.000Z" title="发表于 2021-11-22 19:21:14">2021-11-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/21/%E6%89%8B%E5%86%99-miniVue-03-%E5%AF%BC%E5%87%BA%E5%A4%96%E9%83%A8%E5%AE%9E%E4%BE%8B/" title="手写 miniVue - 03_导出外部实例"><img src="/img/space04.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="手写 miniVue - 03_导出外部实例"/></a><div class="content"><a class="title" href="/2021/11/21/%E6%89%8B%E5%86%99-miniVue-03-%E5%AF%BC%E5%87%BA%E5%A4%96%E9%83%A8%E5%AE%9E%E4%BE%8B/" title="手写 miniVue - 03_导出外部实例">手写 miniVue - 03_导出外部实例</a><time datetime="2021-11-21T11:12:00.000Z" title="发表于 2021-11-21 11:12:00">2021-11-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/21/%E6%89%8B%E5%86%99-miniVue-02-%E5%93%8D%E5%BA%94%E5%BC%8F/" title="手写 miniVue -  02_响应式"><img src="/img/space05.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="手写 miniVue -  02_响应式"/></a><div class="content"><a class="title" href="/2021/11/21/%E6%89%8B%E5%86%99-miniVue-02-%E5%93%8D%E5%BA%94%E5%BC%8F/" title="手写 miniVue -  02_响应式">手写 miniVue -  02_响应式</a><time datetime="2021-11-21T11:09:00.000Z" title="发表于 2021-11-21 11:09:00">2021-11-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/21/%E6%89%8B%E5%86%99-miniVue/" title="手写 miniVue - 01_渲染实现"><img src="/img/space03.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="手写 miniVue - 01_渲染实现"/></a><div class="content"><a class="title" href="/2021/11/21/%E6%89%8B%E5%86%99-miniVue/" title="手写 miniVue - 01_渲染实现">手写 miniVue - 01_渲染实现</a><time datetime="2021-11-21T11:06:00.000Z" title="发表于 2021-11-21 11:06:00">2021-11-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/18/interview-react/" title="interview react"><img src="/img/space05.jpeg" onerror="this.onerror=null;this.src='/img/404.gif'" alt="interview react"/></a><div class="content"><a class="title" href="/2021/11/18/interview-react/" title="interview react">interview react</a><time datetime="2021-11-18T15:54:00.000Z" title="发表于 2021-11-18 15:54:00">2021-11-18</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/axios/"><span class="card-category-list-name">axios</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/c/"><span class="card-category-list-name">c</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/config/"><span class="card-category-list-name">config</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/css-trick/"><span class="card-category-list-name">css trick</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/docker/"><span class="card-category-list-name">docker</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/interview/"><span class="card-category-list-name">interview</span><span class="card-category-list-count">3</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/interview/vue3/"><span class="card-category-list-name">vue3</span><span class="card-category-list-count">1</span></a></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/axios/" style="font-size: 1.1em; color: #999">axios</a> <a href="/tags/c/" style="font-size: 1.17em; color: #999c9f">c</a> <a href="/tags/config/" style="font-size: 1.3em; color: #99a1ac">config</a> <a href="/tags/css-trick/" style="font-size: 1.17em; color: #999c9f">css trick</a> <a href="/tags/docker/" style="font-size: 1.1em; color: #999">docker</a> <a href="/tags/git/" style="font-size: 1.17em; color: #999c9f">git</a> <a href="/tags/interview/" style="font-size: 1.3em; color: #99a1ac">interview</a> <a href="/tags/js-trick/" style="font-size: 1.5em; color: #99a9bf">js trick</a> <a href="/tags/nothing/" style="font-size: 1.1em; color: #999">nothing</a> <a href="/tags/python-trick/" style="font-size: 1.1em; color: #999">python trick</a> <a href="/tags/react/" style="font-size: 1.1em; color: #999">react</a> <a href="/tags/sql/" style="font-size: 1.1em; color: #999">sql</a> <a href="/tags/vue/" style="font-size: 1.43em; color: #99a6b9">vue</a> <a href="/tags/vue3/" style="font-size: 1.1em; color: #999">vue3</a> <a href="/tags/webpack/" style="font-size: 1.1em; color: #999">webpack</a> <a href="/tags/%E6%89%8B%E5%86%99/" style="font-size: 1.23em; color: #999ea6">手写</a> <a href="/tags/%E6%89%8B%E5%86%99%E7%B3%BB%E5%88%97/" style="font-size: 1.37em; color: #99a4b2">手写系列</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/11/"><span class="card-archive-list-date">十一月 2021</span><span class="card-archive-list-count">40</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">40</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">19.8k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-01-17T13:19:03.484Z"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/space.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By jiujue</div><div class="footer_custom_text">Hi, welcome to my <a href="https://www.jiujue.top/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    var typed = new Typed("#subtitle", {
+      strings: "脚踏实地&#44;仰望星空,Never put off till tomorrow what you can do today".split(","),
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: false,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("subtitle").innerHTML = '脚踏实地&#44;仰望星空'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

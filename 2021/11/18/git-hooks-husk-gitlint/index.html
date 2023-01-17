@@ -1,0 +1,370 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git hooks(husk gitlint..) | jiujue</title><meta name="keywords" content="git"><meta name="author" content="jiujue,jiujueismmp@foxmail.com"><meta name="copyright" content="jiujue"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="GitHook 工具 —— stylelint , husky , cz-cli , commitlint ,lint-staged stylelint:自动修复错误、格式化样式代码 安装 stylelint、stylelint-config-standard 两个依赖到我们的项目中 1yarn add stylelint stylelint-config-standard -D  根目录，创建一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git hooks(husk gitlint..)">
+<meta property="og:url" content="https://www.jiujue.top/2021/11/18/git-hooks-husk-gitlint/index.html">
+<meta property="og:site_name" content="jiujue">
+<meta property="og:description" content="GitHook 工具 —— stylelint , husky , cz-cli , commitlint ,lint-staged stylelint:自动修复错误、格式化样式代码 安装 stylelint、stylelint-config-standard 两个依赖到我们的项目中 1yarn add stylelint stylelint-config-standard -D  根目录，创建一">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.jiujue.top/img/space02.jpeg">
+<meta property="article:published_time" content="2021-11-18T13:34:00.000Z">
+<meta property="article:modified_time" content="2023-01-17T13:17:09.540Z">
+<meta property="article:author" content="jiujue">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.jiujue.top/img/space02.jpeg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://www.jiujue.top/2021/11/18/git-hooks-husk-gitlint/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"top-right"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'git hooks(husk gitlint..)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-01-17 13:17:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">40</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">26</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/space02.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">jiujue</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">git hooks(husk gitlint..)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-18T13:34:00.000Z" title="发表于 2021-11-18 13:34:00">2021-11-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-01-17T13:17:09.540Z" title="更新于 2023-01-17 13:17:09">2023-01-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/git/">git</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="git hooks(husk gitlint..)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>GitHook 工具 —— stylelint , husky , cz-cli , commitlint ,lint-staged</p>
+<h2 id="stylelint"><a href="#stylelint" class="headerlink" title="stylelint:"></a>stylelint:</h2><p>自动修复错误、格式化样式代码</p>
+<p>安装 <code>stylelint</code>、<code>stylelint-config-standard</code> 两个依赖到我们的项目中</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add stylelint stylelint-config-standard -D</span><br></pre></td></tr></table></figure>
+
+<p>根目录，创建一个 <code>.stylelintrc</code> 配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;extends&quot;: &quot;stylelint-config-standard&quot;,</span><br><span class="line">  &quot;rules&quot;: &#123;</span><br><span class="line">    &quot;indentation&quot;: [</span><br><span class="line">      2,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;baseIndentLevel&quot;: 1</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;declaration-block-semicolon-newline-after&quot;: &quot;always&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Husky"><a href="#Husky" class="headerlink" title="Husky:"></a>Husky:</h2><p>husky是一个git hook工具，可以帮助我们触发git提交的各个阶段：pre-commit、commit-msg、pre-push</p>
+<p>安装:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add husky-init --dev &amp;&amp; yarn husky-init</span><br></pre></td></tr></table></figure>
+
+<p>or npm:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx husky-init &amp;&amp; npm install</span><br></pre></td></tr></table></figure>
+
+<h2 id="Commitlint"><a href="#Commitlint" class="headerlink" title="Commitlint:"></a>Commitlint:</h2><p>限制提交 , 不符合的提交会被拒绝</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add @commitlint/config-conventional @commitlint/cli -D</span><br></pre></td></tr></table></figure>
+
+<p>根目录创建  commitlint.config.js 文件，配置commitlint</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  extends: [<span class="string">&#x27;@commitlint/config-conventional&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用husky生成commit-msg文件，验证提交信息</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn husky add .husky/commit-msg <span class="string">&#x27;yarn commitlint --edit &quot;$1&quot;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>or npm:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx husky add .husky/commit-msg <span class="string">&quot;npx --no-install commitlint --edit <span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="lint-staged"><a href="#lint-staged" class="headerlink" title="lint-staged"></a>lint-staged</h2><p>只会对修改的文件进行检查、修复处理</p>
+<p>install : </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add lint-staged -D</span><br></pre></td></tr></table></figure>
+
+<p>根目录，创建一个 <code>.lintstagedrc</code> 配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;  &quot;*.&#123;js,vue&#125;&quot;: [&quot;yarn lint&quot;],  &quot;*.&#123;html,vue,css,scss,sass,less&#125;&quot;: [&quot;stylelint --fix&quot;]&#125;</span><br></pre></td></tr></table></figure>
+
+<p>or npm</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;  &quot;*.&#123;js,vue&#125;&quot;: [&quot;npm run lint&quot;],  &quot;*.&#123;html,vue,css,scss,sass,less&#125;&quot;: [&quot;stylelint --fix&quot;]&#125;</span><br></pre></td></tr></table></figure>
+
+<p>增加 pre-commit 勾子</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn husky add .husky/pre-commit <span class="string">&#x27;yarn lint-staged --allow-empty &quot;$1&quot;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Commitizen-是一个帮助我们编写规范-commit-message"><a href="#Commitizen-是一个帮助我们编写规范-commit-message" class="headerlink" title="Commitizen: 是一个帮助我们编写规范 commit message"></a>Commitizen: 是一个帮助我们编写规范 commit message</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn  add commitizen -D</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">commitizen init cz-conventional-changelog --yarn --dev --exact</span><br></pre></td></tr></table></figure>
+
+<p>Or npm</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install commitizen -Dnpx commitizen init cz-conventional-changelog --save-dev --save-exact</span><br></pre></td></tr></table></figure>
+
+<p>以后提交使用:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn cz or npx cz</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>feat</td>
+<td>新增特性 (feature)</td>
+</tr>
+<tr>
+<td>fix</td>
+<td>修复 Bug(bug fix)</td>
+</tr>
+<tr>
+<td>docs</td>
+<td>修改文档 (documentation)</td>
+</tr>
+<tr>
+<td>style</td>
+<td>代码格式修改(white-space, formatting, missing semi colons, etc)</td>
+</tr>
+<tr>
+<td>refactor</td>
+<td>代码重构(refactor)</td>
+</tr>
+<tr>
+<td>perf</td>
+<td>改善性能(A code change that improves performance)</td>
+</tr>
+<tr>
+<td>test</td>
+<td>测试(when adding missing tests)</td>
+</tr>
+<tr>
+<td>build</td>
+<td>变更项目构建或外部依赖（例如 scopes: webpack、gulp、npm 等）</td>
+</tr>
+<tr>
+<td>ci</td>
+<td>更改持续集成软件的配置文件和 package 中的 scripts 命令，例如 scopes: Travis, Circle 等</td>
+</tr>
+<tr>
+<td>chore</td>
+<td>变更构建流程或辅助工具(比如更改测试环境)</td>
+</tr>
+<tr>
+<td>revert</td>
+<td>代码回退</td>
+</tr>
+</tbody></table>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题:"></a>问题:</h2><h3 id="当我们在-Windows-的-Git-Bash-上使用-Yarn，git-hooks-会失败（stdin-is-not-a-tty）。"><a href="#当我们在-Windows-的-Git-Bash-上使用-Yarn，git-hooks-会失败（stdin-is-not-a-tty）。" class="headerlink" title="当我们在 Windows 的 Git Bash 上使用 Yarn，git hooks 会失败（stdin is not a tty）。"></a>当我们在 Windows 的 <code>Git Bash</code> 上使用 <code>Yarn</code>，git hooks 会失败（<code>stdin is not a tty</code>）。</h3><p>解决方案：</p>
+<p>1.在 <code>.husky</code> 目录下创建一个 <code>common.sh</code> 文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh command_exists () &#123;  command -v &quot;$1&quot; &gt;/dev/null 2&gt;&amp;1&#125; # Windows 10, Git Bash and Yarn workaroundif command_exists winpty &amp;&amp; test -t 1; then  exec &lt; /dev/ttyfi</span><br></pre></td></tr></table></figure>
+
+<p>在对应的勾子文件中，增加一行 <code>. &quot;$(dirname &quot;$0&quot;)/common.sh&quot;</code> 代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh. &quot;$(dirname &quot;$0&quot;)/_/husky.sh&quot;. &quot;$(dirname &quot;$0&quot;)/common.sh&quot; yarn …</span><br></pre></td></tr></table></figure>
+
+<h3 id="CI-持续集成"><a href="#CI-持续集成" class="headerlink" title="CI 持续集成 :"></a>CI 持续集成 :</h3><p> CI 是不需要 git hooks 的问题，就直接将代码合并到测试服的分支上，通过 <code>Jenkins</code> 构建出现了 husky install 失败。</p>
+<p>解决方案：<br>使用 <code>is-ci</code>，在 ci 场景不会执行 <code>husky install</code></p>
+<p>安装 <code>is-ci</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add is-ci -D</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>.husky</code> 目录下，创建一个 <code>install.js</code> 文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const &#123; spawnSync &#125; = require(&#x27;child_process&#x27;)const isCI = require(&#x27;is-ci&#x27;) if (!isCI) &#123;  spawnSync(&#x27;husky&#x27;, [&#x27;install&#x27;], &#123;    stdio: &#x27;inherit&#x27;,    shell: true  &#125;)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改 <code>package.json</code> 文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;script&quot;: &#123;   &quot;postinstall&quot;: &quot;node .husky/install.js&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码规范"><a href="#代码规范" class="headerlink" title="代码规范"></a>代码规范</h2><h3 id="1-1-集成editorconfig配置"><a href="#1-1-集成editorconfig配置" class="headerlink" title="1.1. 集成editorconfig配置"></a>1.1. 集成editorconfig配置</h3><p>EditorConfig 有助于为不同 IDE 编辑器上处理同一项目的多个开发人员维护一致的编码风格。</p>
+<p>.editorconfig</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http://editorconfig.orgroot = true[*] # 表示所有文件适用charset = utf-8 # 设置文件字符集为 utf-8indent_style = space # 缩进风格（tab | space）indent_size = 2 # 缩进大小end_of_line = lf # 控制换行类型(lf | cr | crlf)trim_trailing_whitespace = true # 去除行首的任意空白字符insert_final_newline = true # 始终在文件末尾插入一个新行[*.md] # 表示仅 md 文件适用以下规则max_line_length = offtrim_trailing_whitespace = false</span></span><br></pre></td></tr></table></figure>
+
+<p>VSCode需要安装一个插件：EditorConfig for VS Code</p>
+<p>2.配置.prettierrc文件：</p>
+<ul>
+<li>useTabs：使用tab缩进还是空格缩进，选择false；</li>
+<li>tabWidth：tab是空格的情况下，是几个空格，选择2个；</li>
+<li>printWidth：当行字符的长度，推荐80，也有人喜欢100或者120；</li>
+<li>singleQuote：使用单引号还是双引号，选择true，使用单引号；</li>
+<li>trailingComma：在多行输入的尾逗号是否添加，设置为 <code>none</code>；</li>
+<li>semi：语句末尾是否要加分号，默认值true，选择false表示不加；</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;  <span class="attr">&quot;useTabs&quot;</span>: <span class="literal">false</span>,  <span class="attr">&quot;tabWidth&quot;</span>: <span class="number">2</span>,  <span class="attr">&quot;printWidth&quot;</span>: <span class="number">80</span>,  <span class="attr">&quot;singleQuote&quot;</span>: <span class="literal">true</span>,  <span class="attr">&quot;trailingComma&quot;</span>: <span class="string">&quot;none&quot;</span>,  <span class="attr">&quot;semi&quot;</span>: <span class="literal">false</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.创建.prettierignore忽略文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dist/*.local.output.js/node_modules/****/*.svg**/*.sh/public/*</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:jiujueismmp@foxmail.com">jiujue</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.jiujue.top/2021/11/18/git-hooks-husk-gitlint/">https://www.jiujue.top/2021/11/18/git-hooks-husk-gitlint/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.jiujue.top" target="_blank">jiujue</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/git/">git</a></div><div class="post_share"><div class="social-share" data-image="/img/space02.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechatpay.png" target="_blank"><img class="post-qr-code-img" src="/img/wechatpay.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/18/git-commend/"><img class="prev-cover" src="/img/space06.jpeg" onerror="onerror=null;src='/img/404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">git commend</div></div></a></div><div class="next-post pull-right"><a href="/2021/11/18/vimrc-vim-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%A4%BA%E4%BE%8B-%E6%97%A7%E7%89%88/"><img class="next-cover" src="/img/space05.jpeg" onerror="onerror=null;src='/img/404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">vimrc vim 配置文件示例(旧版)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/11/18/git-commend/" title="git commend"><img class="cover" src="/img/space06.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-18</div><div class="title">git commend</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#stylelint"><span class="toc-number">1.</span> <span class="toc-text">stylelint:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Husky"><span class="toc-number">2.</span> <span class="toc-text">Husky:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commitlint"><span class="toc-number">3.</span> <span class="toc-text">Commitlint:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lint-staged"><span class="toc-number">4.</span> <span class="toc-text">lint-staged</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commitizen-%E6%98%AF%E4%B8%80%E4%B8%AA%E5%B8%AE%E5%8A%A9%E6%88%91%E4%BB%AC%E7%BC%96%E5%86%99%E8%A7%84%E8%8C%83-commit-message"><span class="toc-number">5.</span> <span class="toc-text">Commitizen: 是一个帮助我们编写规范 commit message</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">问题:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E5%9C%A8-Windows-%E7%9A%84-Git-Bash-%E4%B8%8A%E4%BD%BF%E7%94%A8-Yarn%EF%BC%8Cgit-hooks-%E4%BC%9A%E5%A4%B1%E8%B4%A5%EF%BC%88stdin-is-not-a-tty%EF%BC%89%E3%80%82"><span class="toc-number">6.1.</span> <span class="toc-text">当我们在 Windows 的 Git Bash 上使用 Yarn，git hooks 会失败（stdin is not a tty）。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CI-%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90"><span class="toc-number">6.2.</span> <span class="toc-text">CI 持续集成 :</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83"><span class="toc-number">7.</span> <span class="toc-text">代码规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E9%9B%86%E6%88%90editorconfig%E9%85%8D%E7%BD%AE"><span class="toc-number">7.1.</span> <span class="toc-text">1.1. 集成editorconfig配置</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/space02.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By jiujue</div><div class="footer_custom_text">Hi, welcome to my <a href="https://www.jiujue.top/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '27706899ccf4f4914d81',
+      clientSecret: '3d52b2625605f32fb545a42f784312586b47aeef',
+      repo: 'jiujue.github.io',
+      owner: 'jiujue',
+      admin: ['jiujue'],
+      id: 'c6eb756918c58815a4fb4f65ef739825',
+      language: 'zh-CN',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !true) {
+  if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
